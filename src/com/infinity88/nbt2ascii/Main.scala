@@ -31,10 +31,13 @@ object Main {
   def main(args: Array[String]): Unit = {
     //val inputPath = "sample-structures/ochill.nbt"
     //val inputPath = "sample-structures/worldtree.nbt"
-    val fold = "Y:/Minecraft/NBT/In"
-    val bla: Array[File] = getRecursiveListOfFiles(new File(fold))
+    //val foldin = "Y:/Minecraft/NBT/In"
+    //val foldout = "Y:/Minecraft/NBT/Out"
+    val foldin = "C:/Privat/NBTConvert/In"
+    val foldout = "C:/Privat/NBTConvert/Out"
+    val bla: Array[File] = getRecursiveListOfFiles(new File(foldin))
     println(bla)
-    val bla2: List[String] = getListOfSubDirectories(new File(fold))
+    val bla2: List[String] = getListOfSubDirectories(new File(foldin))
     println(bla2)
     for(x <- bla){
       if(x.isFile){
@@ -43,12 +46,12 @@ object Main {
         val inputPath = x.toString()
       
         val levelName = new File(inputPath).getName.takeWhile(c => c != '.')
-        val foldername = x.toString().substring(fold.length, x.toString().length - levelName.length -5)
+        val foldername = x.toString().substring(foldin.length, x.toString().length - levelName.length -5)
                 
-        val outputLevelsDirectory = Paths.get(s"Y:/Minecraft/NBT/Out${foldername}/${levelName}")
+        val outputLevelsDirectory = Paths.get(s"${foldout}${foldername}/${levelName}")
         outputLevelsDirectory.toFile.mkdirs()
       
-        val outputModelPath = Paths.get(s"Y:/Minecraft/NBT/Out${foldername}/${levelName}.model")
+        val outputModelPath = Paths.get(s"${foldout}${foldername}/${levelName}.model")
         if(!(Files.exists(outputModelPath))){
           println("Input")
           println(inputPath)
