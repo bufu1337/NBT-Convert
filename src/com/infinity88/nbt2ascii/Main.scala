@@ -34,7 +34,7 @@ object Main {
     //val foldin = "Y:/Minecraft/NBT/In"
     //val foldout = "Y:/Minecraft/NBT/Out"
     val foldin = "C:/Privat/NBTConvert/In"
-    val foldout = "C:/Privat/NBTConvert/Out"
+    val foldout = "C:/Users/alexandersk/workspace/OC-Scripts/src/Builder/Models/"
     val bla: Array[File] = getRecursiveListOfFiles(new File(foldin))
     println(bla)
     val bla2: List[String] = getListOfSubDirectories(new File(foldin))
@@ -52,7 +52,7 @@ object Main {
         outputLevelsDirectory.toFile.mkdirs()
       
         val outputModelPath = Paths.get(s"${foldout}${foldername}/${levelName}.model")
-        if(!(Files.exists(outputModelPath))){
+        if(!(Files.exists(outputModelPath)) && !(Files.exists(Paths.get(s"${foldout}/${levelName}.lua")))){
           println("Input")
           println(inputPath)
           println("level Name")
