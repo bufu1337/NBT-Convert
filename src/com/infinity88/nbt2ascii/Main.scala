@@ -31,10 +31,10 @@ object Main {
   def main(args: Array[String]): Unit = {
     //val inputPath = "sample-structures/ochill.nbt"
     //val inputPath = "sample-structures/worldtree.nbt"
-    //val foldin = "Y:/Minecraft/NBT/In"
-    //val foldout = "Y:/Minecraft/NBT/Out"
-    val foldin = "C:/Privat/NBTConvert/In"
-    val foldout = "C:/Privat/NBTConvert/Out"
+    val foldin = "Y:/Minecraft/NBT/In"
+    val foldout = "Y:/Minecraft/OC-Scripts/Builder/Models"
+    //val foldin = "C:/Privat/NBTConvert/In"
+    //val foldout = "C:/Privat/NBTConvert/Out"
     val bla: Array[File] = getRecursiveListOfFiles(new File(foldin))
     println(bla)
     val bla2: List[String] = getListOfSubDirectories(new File(foldin))
